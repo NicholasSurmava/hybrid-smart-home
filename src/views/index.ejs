@@ -4,11 +4,82 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>SSR Smart Home Report</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="dist/index.css" />
   </head>
   <body>
-    <img src="assets/house.svg" alt="" />
+    <header class="site__header">
+      <h1>Smart Home Status</h1>
+    </header>
+    <main>
+      <article class="home__status">
+        <header class="home__header">
+          <div class="home__brief">
+            <p class="home__id">Home ID: 23</p>
+            <p class="home__address">100 Chicago St. Barts, WI 60054</p>
+          </div>
+          <div class="icon__container">
+            <img class="home__icon" src="assets/house.svg" alt="home icon" />
+          </div>
+        </header>
+        <section class="home__summary">
+          <h2>Home Summary</h2>
+          <div class="info__container">
+            <div class="weather__info">
+              <h3>Weather Info</h3>
+              <!-- TODO: Add Refresh button, form submit -->
+              <ul>
+                <li data-js="weather__temperature">Temperature: Loading...</li>
+                <li data-js="weather__time">Time: Loading...</li>
+                <li data-js="weather__latitude">LATITUDE: Loading...</li>
+                <li data-js="weather__longitude">LONGITUDE: Loading...</li>
+              </ul>
+            </div>
+            <div class="power__info">
+              <h3>Power Info</h3>
+              <!-- TODO: Add Refresh button, form submit -->
+              <ul>
+                <li>Batteries: <%= powerInfo.batteries %></li>
+                <li>Breakers: <%= powerInfo.breakers %></li>
+                <li>Voltage: <%= powerInfo.voltage %></li>
+              </ul>
+            </div>
+            <div class="water__info">
+              <h3>Water Info</h3>
+              <!-- TODO: Add Refresh button, form submit -->
+              <ul>
+                <li>Water Level: <%= waterInfo.water_level %></li>
+                <li>Water Quality: <%= waterInfo.water_quality %></li>
+              </ul>
+            </div>
+            <div class="internet__info">
+              <h3>internet Info</h3>
+              <!-- TODO: Add Refresh button, form submit -->
+              <ul>
+                <li>ISP: <%= internetInfo.isp %></li>
+                <li>Speed: <%= internetInfo.speed %></li>
+                <li>Health: <%= internetInfo.internet_health %></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+    <div style="display: none">
+      Icons made by
+      <a
+        href="https://www.flaticon.com/authors/vectors-market"
+        title="Vectors Market"
+        >Vectors Market</a
+      >
+      from
+      <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+    </div>
     <script src="dist/index.js"></script>
   </body>
 </html>
